@@ -6,7 +6,7 @@ from sklearn.cluster import KMeans
 
 def same_size(X,y):
     minlength = min(y.shape[0],X.shape[0])
-    print minlength
+    print(minlength)
     y = y[:minlength]
     X = X[:minlength]
     return X,y
@@ -23,11 +23,11 @@ def load_model_data(pos, feat, num_samples, alpha):
     inds = np.random.choice(a=min(len(feat),len(pos)),size=int(num_samples*float(len(feat))))
     if len(inds)%2 == 1:
         inds=inds[:-1]
-    nd = len(inds)/2 # number of deltas
+    nd = int(len(inds)/2) # number of deltas
     X_train = feat[inds[:nd]] - feat[inds[nd:]]
     y_train = pos[inds[:nd]] - pos[inds[nd:]]
     X_train, y_train = same_size(X_train, y_train)
-    print X_train.shape, y_train.shape
+    print(X_train.shape, y_train.shape)
 
     # begin training
     from sklearn import linear_model
