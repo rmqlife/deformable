@@ -17,3 +17,6 @@ def get_filelist(home_dir, ext=['png','jpg']):
 
 
 
+def stack_vector(mat,vec):
+    mat = np.vstack((mat,vec)) if mat.size else vec
+    return mat
