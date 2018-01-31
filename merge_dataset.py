@@ -67,10 +67,15 @@ def merge_matrix(home,folder):
 
 
 if __name__=='__main__':
-    home = "/playpen/biao/result/0130/result/"
-    home2 = "/playpen/biao/result/0130/merged3"
-    #merge_ext(home,home2,exts=['npz','png'])
+    import sys
+    home = sys.argv[1]
+    home2 = sys.argv[2]
+    merge_ext(home,home2,exts=['npz','png'])
     os.chdir(home2)
+    merge_matrix(home2, home2)
+    if not os.path.exists('depth_sim'):
+        os.mkdir('depth_sim')
+    #os.rename("png/*depth*", "depth_sim")
     #change_flt('flt','depth')
     #build_depth_feature('depth','tt_depth')
-    merge_matrix(home2, home2)
+    
