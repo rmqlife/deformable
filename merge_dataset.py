@@ -57,7 +57,7 @@ def merge_matrix(home,folder):
             print('key',key)
             tt_mat = np.array([])
             for i in range(len(flist)):
-                #print(flist[i].keys)
+                print(flist[i])
                 data = np.load(flist[i])
                 mat = data[key]
                 tt_mat = stack_vector(tt_mat,mat)
@@ -68,9 +68,9 @@ def merge_matrix(home,folder):
 
 if __name__=='__main__':
     home = "/playpen/biao/result/0130/result/"
-    home2 = "/playpen/biao/result/0130/merged"
-    #merge_ext(home,home2,exts=['flt','npz','png'])
+    home2 = "/playpen/biao/result/0130/merged3"
+    #merge_ext(home,home2,exts=['npz','png'])
     os.chdir(home2)
-    change_flt('flt','depth')
-    build_depth_feature('depth','tt_depth')
+    #change_flt('flt','depth')
+    #build_depth_feature('depth','tt_depth')
     merge_matrix(home2, home2)
