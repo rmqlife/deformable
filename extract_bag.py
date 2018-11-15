@@ -6,9 +6,6 @@ from cv_bridge import CvBridge
 import numpy as np
 import sys
 # conda install libgcc
-
-
-
 if __name__ == '__main__':
 
 	bagname = sys.argv[1]
